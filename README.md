@@ -68,7 +68,7 @@ c) якщо це у нас моушн-камера, яка дуже швидко
 	4) машинку спереду
 
 <p align="center">
-  <img src="images/augmentaion.jpg" width="40%" />
+  <img src="images/augmentaion.jpg" width="80%" />
 </p>
 
 
