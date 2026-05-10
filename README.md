@@ -85,27 +85,21 @@ c) якщо це у нас моушн-камера, яка дуже швидко
 
 ## 4. Training
 
-### 1. Install CUDA drivers
-
-<p align="center">
-  <img src="images/cuda.png" width="40%" />
-</p>
-
-### 2. Prepare dataset configuration
+### 1. Prepare dataset configuration
 
 Prepare your dataset configuration file, for example `data.yaml`.
 
-### 3. Run training
+### 2. Run training
 ```
 ython3 train.py --workers 8  --batch-size 16 --data ./data.yaml  --img 640 640 --cfg cfg/training/model.yaml --weights '' --name moled --hyp data/hyp.params.yaml 
 ```
 <p align="center">
-  <img src="images/training.jpg" width="40%" />
+  <img src="images/training.jpg" width="100%" />
 </p>
 
 Look how beautifully the loss function decreases :)
 
-### 4. Wait
+### 3. Wait
 
 <p align="center">
   <img src="images/few_hours_later.jpeg" width="40%" />
