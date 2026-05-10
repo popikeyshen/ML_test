@@ -59,12 +59,14 @@ c) якщо це у нас моушн-камера, яка дуже швидко
 
 ---
 
+
 ## 3. The Auto-Labeling
 
-Для автолейбелінгу ми створимо скрипт, який за допомогою аугментацій генеруватиме велику кількість нових даних.  
+Для автолейбелінгу ми створимо скрипт, який за допомогою аугментацій генеруватиме велику кількість нових даних.
+
 Усе, що нам потрібно — це вручну розмітити декілька якісних зображень, наприклад 5–10 кадрів.
 
-Після цього ми зможемо автоматично отримати вже тисячі нових прикладів — наприклад 1000–5000 зображень.
+Після цього ми зможемо автоматично отримати тисячі нових прикладів — наприклад 1000–5000 зображень.
 
 Для цього беремо декілька найбільш деталізованих зображень автомобілів із різних ракурсів:
 
@@ -79,36 +81,34 @@ c) якщо це у нас моушн-камера, яка дуже швидко
 
 ### The auto-labeling code example is available in the `./augmentaion` folder
 
+---
 
 ## 4. Training
 
-	1) Install some cuda driver
-	<p align="center">
-	  <img src="images/cuda.png" width="40%" />
-	</p>
+### 1. Install CUDA drivers
 
-	2) Prepare your data in to data file for example **data.yaml**
-	3) Run train command 
-	```
-	 python3 train.py --workers 8  --batch-size 16 --data ./data.yaml  --img 640 640 --cfg cfg/training/model.yaml --weights '' --name moled --hyp data/hyp.params.yaml 
-	```
-	<p align="center">
-	  <img src="images/training.jpg" width="40%" />
-	</p>
+<p align="center">
+  <img src="images/cuda.png" width="40%" />
+</p>
 
-	look how beautiful loss function is falling 
-	4) and wait
+### 2. Prepare dataset configuration
 
-	<p align="center">
-	  <img src="few_hours_later.jpeg" width="40%" />
-	</p>
+Prepare your dataset configuration file, for example `data.yaml`.
 
+### 3. Run training
+```
+ython3 train.py --workers 8  --batch-size 16 --data ./data.yaml  --img 640 640 --cfg cfg/training/model.yaml --weights '' --name moled --hyp data/hyp.params.yaml 
+```
+<p align="center">
+  <img src="images/training.jpg" width="40%" />
+</p>
 
-## 5. Run and test
+Look how beautifully the loss function decreases :)
 
+### 4. Wait
 
-
-
-
+<p align="center">
+  <img src="images/few_hours_later.jpeg" width="40%" />
+</p>
 
 
