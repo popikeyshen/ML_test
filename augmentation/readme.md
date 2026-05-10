@@ -5,8 +5,15 @@ This script generates augmented YOLO-format training images by resizing objects 
 
 ## What it does
 
+
 It was created for our car detection task and generates additional training samples by:
 
 - randomly resizing cars,
 - keeping the original image size,
 - rotating images and bounding boxes,
+
+
+### RUN
+```
+python3 rotate_and_resize.py
+```
