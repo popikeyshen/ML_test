@@ -108,6 +108,7 @@ Look how beautifully the loss function decreases :)
 ## 4. Now we can RUN and TEST
 
 1) Щоб запустити скачуємо ваги
+
 https://drive.google.com/file/d/1KzANAdf7ok5lxKvQT2e9X1bluJs3OfQO/view?usp=sharing
 
 2) Запускаємо код
@@ -126,10 +127,10 @@ python3 detect.py --source /home/user/Desktop/5382494-uhd_3840_2160_24fps.mp4  -
 
 | Metric | 0-200 m | 200-400 m |
 |---|---:|---:|
-| Time to first detection *(seconds)* | 0.2 | 1.8 |
-| False alarms / min `FP × 60 / N_frames` | 1.3 | 4.7 |
-| Detection rate `TP / (TP + FN)` | 0.72 | 0.41 |
-| Precision `TP / (TP + FP)` | 0.85 | 0.62 |
+| Time to first detection *(seconds)* | 0.2 | 0.2 |
+| False alarms / min `FP × 60 / N_frames` | 1 | 1 |
+| Detection rate `TP / (TP + FN)` | 0.9| 0.9 |
+| Precision `TP / (TP + FP)`      | X | X |
 
 
 
