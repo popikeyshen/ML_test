@@ -26,7 +26,7 @@ parser.add_argument(
 parser.add_argument(
     "--min_size",
     type=int,
-    default=12,
+    default=20,
     help="minimum bbox size"
 )
 

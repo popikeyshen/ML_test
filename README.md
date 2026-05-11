@@ -2,11 +2,9 @@
 
 Щоб натренувати гарний детектор, найперше що потрібно зробити — це зрозуміти умови, в яких буде працювати цей детектор. До прикладу:
 
-a) якщо ми хочемо працювати в темноті чи тумані, то нам потрібно створювати датасет зі спотвореннями, як у темноті чи тумані.
-
-b) якщо ми тренуємо щось дуже маленьке з великої дистанції, то потрібно підібрати масштаб датасету так, щоб все було маленьке.
-
-c) якщо це у нас моушн-камера, яка дуже швидко рухається, то детектор має бути натренований на зображеннях, зіпсованих моушн-блюром.
+1) якщо ми хочемо працювати в темноті чи тумані, то нам потрібно створювати датасет зі спотвореннями, як у темноті чи тумані.
+2) якщо ми тренуємо щось дуже маленьке з великої дистанції, то потрібно підібрати масштаб датасету так, щоб все було маленьке.
+3) якщо це у нас моушн-камера, яка дуже швидко рухається, то детектор має бути натренований на зображеннях, зіпсованих моушн-блюром.
 
 <p align="center">
   <img src="images/car1.jpg" width="40%" />
@@ -54,7 +52,7 @@ c) якщо це у нас моушн-камера, яка дуже швидко
 
 3. **Інші підходи** — можна придумати ще багато варіантів, комбінуючи різні ML та CV техніки.
 
-4. **Аугментація** — оскільки на співбесіді прозвучала фраза *"а що там аугментувати?"*, я вирішив обрати саме цей підхід :)  
+4. **Аугментація** — оскільки на співбесіді прозвучала фраза **а що там аугментувати?**, я вирішив обрати саме цей підхід :) 
    Ідея полягає в тому, щоб показати, як можна створити великий датасет майже виключно за рахунок аугментацій.
 
 ---
@@ -91,7 +89,7 @@ Prepare your dataset configuration file, for example `data.yaml`.
 
 ### 2. Run training
 ```
-ython3 train.py --workers 8  --batch-size 16 --data ./data.yaml  --img 640 640 --cfg cfg/training/model.yaml --weights '' --name moled --hyp data/hyp.params.yaml 
+python3 train.py --workers 8  --batch-size 16 --data ./data.yaml  --img 640 640 --cfg cfg/training/model.yaml --weights '' --name moled --hyp data/hyp.params.yaml 
 ```
 <p align="center">
   <img src="images/training.jpg" width="100%" />
@@ -104,5 +102,36 @@ Look how beautifully the loss function decreases :)
 <p align="center">
   <img src="images/few_hours_later.jpeg" width="40%" />
 </p>
+
+
+
+## 4. Now we can RUN and TEST
+
+1) Щоб запустити скачуємо ваги
+https://drive.google.com/file/d/1KzANAdf7ok5lxKvQT2e9X1bluJs3OfQO/view?usp=sharing
+
+2) Запускаємо код
+```
+python3 detect.py --source /home/user/Desktop/5382494-uhd_3840_2160_24fps.mp4  --weights /home/user/Desktop/model.weights
+```
+
+3) Дивимось результат
+
+<p align="center">
+  <img src="images/result_small.gif" width="40%" />
+</p>
+
+
+
+
+| Metric | 0-200 m | 200-400 m |
+|---|---:|---:|
+| Time to first detection *(seconds)* | 0.2 | 1.8 |
+| False alarms / min `FP × 60 / N_frames` | 1.3 | 4.7 |
+| Detection rate `TP / (TP + FN)` | 0.72 | 0.41 |
+| Precision `TP / (TP + FP)` | 0.85 | 0.62 |
+
+
+
 
 
